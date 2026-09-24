@@ -261,7 +261,7 @@ class OstromDataCoordinator(DataUpdateCoordinator):
         url = f"https://{self._env_prefix}/spot-prices"
         
         headers = {"Authorization": f"Bearer {self._access_token}"}
-        tomorrow_end = (today + timedelta(days=2)).replace(hour=0, minute=0, second=0, microsecond=0)
+        tomorrow_end = today + timedelta(days=2)
         params = {
             "startDate": today.strftime("%Y-%m-%dT%H:00:00.000Z"),
             "endDate": tomorrow_end.strftime("%Y-%m-%dT%H:00:00.000Z"),
